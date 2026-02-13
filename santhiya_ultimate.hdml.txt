@@ -1,242 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>For My Love, Santhiya ❤️</title>
+  <meta charset="UTF-8" />
+  <title>My Valentine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #050816;
+      --card: #111827;
+      --accent: #ec4899;
+      --accent-soft: rgba(236, 72, 153, 0.2);
+      --text-main: #f9fafb;
+      --text-soft: #9ca3af;
+      --highlight: #fbbf24;
+      --shadow-strong: 0 20px 40px rgba(0, 0, 0, 0.7);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --glass: rgba(15, 23, 42, 0.85);
+    }
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<style>
     body {
-        margin: 0;
-        font-family: 'Poppins', sans-serif;
-        background: linear-gradient(135deg, #ff758c, #ff7eb3);
-        overflow-x: hidden;
-        color: white;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 45%, #000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-x: hidden;
     }
 
-    h1 {
-        font-family: 'Great Vibes', cursive;
-        font-size: 70px;
-        text-align: center;
-        margin-top: 40px;
-        animation: glow 2s infinite alternate;
+    .valentine-shell {
+      position: relative;
+      max-width: 1100px;
+      width: 100%;
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 55%);
+      border-radius: 32px;
+      padding: 26px;
+      box-shadow: var(--shadow-strong);
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.25);
     }
 
-    @keyframes glow {
-        from { text-shadow: 0 0 10px #fff; }
-        to { text-shadow: 0 0 25px #ffe6f2; }
+    /* Floating background hearts */
+    .floating-heart {
+      position: absolute;
+      font-size: 40px;
+      opacity: 0.12;
+      animation: float 16s linear infinite;
+      pointer-events: none;
     }
 
-    /* Slideshow */
-    .slideshow {
-        width: 80%;
-        height: 350px;
-        margin: 40px auto;
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    .floating-heart:nth-child(1) { top: 8%; left: 6%; animation-delay: 0s; }
+    .floating-heart:nth-child(2) { top: 18%; right: 10%; animation-delay: 3s; }
+    .floating-heart:nth-child(3) { bottom: 10%; left: 18%; animation-delay: 6s; }
+    .floating-heart:nth-child(4) { bottom: 4%; right: 4%; animation-delay: 9s; }
+
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0) scale(1); }
+      50% { transform: translateY(-20px) translateX(10px) scale(1.1); }
+      100% { transform: translateY(0) translateX(0) scale(1); }
     }
 
-    .slideshow img {
-        width: 100%;
-        height: 350px;
-        object-fit: cover;
-        animation: fade 1.5s ease-in-out;
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 24px;
     }
 
-    @keyframes fade {
-        from { opacity: 0; }
-        to { opacity: 1; }
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
     }
 
-    /* Typing Love Letter */
-    .typing-box {
-        width: 80%;
-        margin: 40px auto;
-        background: rgba(255,255,255,0.15);
-        padding: 25px;
-        border-radius: 20px;
-        backdrop-filter: blur(10px);
-        font-size: 18px;
-        line-height: 1.7;
-        min-height: 120px;
-        border-left: 4px solid #fff;
-        animation: slideUp 1.5s ease;
+    /* Left: main love card */
+    .love-card {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.7));
+      border-radius: var(--radius-xl);
+      padding: 24px 22px 22px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.35);
     }
 
-    @keyframes slideUp {
-        from { transform: translateY(40px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
-    }
-
-    /* Reasons List */
-    .reasons {
-        width: 80%;
-        margin: 40px auto;
-        background: rgba(255,255,255,0.15);
-        padding: 25px;
-        border-radius: 20px;
-        backdrop-filter: blur(10px);
-    }
-
-    .reasons button {
-        background: #fff;
-        color: #ff4b6e;
-        padding: 10px 20px;
-        border-radius: 50px;
-        border: none;
-        cursor: pointer;
-        font-size: 16px;
-        margin-bottom: 15px;
-    }
-
-    .reasons ul {
-        list-style: none;
-        padding: 0;
-        font-size: 18px;
-    }
-
-    .reasons li {
-        margin: 10px 0;
-        background: rgba(255,255,255,0.2);
-        padding: 10px;
-        border-radius: 10px;
-    }
-
-    /* Music Button */
-    .music-btn {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: white;
-        color: #ff4b6e;
-        padding: 12px 20px;
-        border-radius: 50px;
-        cursor: pointer;
-        font-weight: 600;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
-
-    /* Rose Petals */
-    .petal {
-        position: fixed;
-        top: -10px;
-        color: #ffdde1;
-        font-size: 25px;
-        animation: fall linear infinite;
-    }
-
-    @keyframes fall {
-        to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-    }
-
-</style>
-</head>
-
-<body>
-
-<h1>For My Love, Santhiya ❤️</h1>
-
-<!-- Background Music -->
-<audio id="bgMusic" loop>
-    <source src="your_music.mp3" type="audio/mp3">
-</audio>
-
-<div class="music-btn" onclick="toggleMusic()">🎵 Play Music</div>
-
-<!-- Slideshow -->
-<div class="slideshow">
-    <img id="slideImg" src="photo1.jpg">
-</div>
-
-<!-- Typing Love Letter -->
-<div class="typing-box" id="typingBox"></div>
-
-<!-- Reasons I Love You -->
-<div class="reasons">
-    <button onclick="showReasons()">Show Reasons I Love You ❤️</button>
-    <ul id="reasonsList"></ul>
-</div>
-
-<script>
-/* Slideshow */
-const photos = ["photo1.jpg", "photo2.jpg", "photo3.jpg"];
-let index = 0;
-
-setInterval(() => {
-    index = (index + 1) % photos.length;
-    document.getElementById("slideImg").src = photos[index];
-}, 3000);
-
-/* Typing Animation */
-const text = "My dearest Santhiya, every moment with you feels magical. Your smile lights up my world, your kindness melts my heart, and your love completes me. I am grateful for you every single day.";
-let i = 0;
-
-function typeLetter() {
-    if (i < text.length) {
-        document.getElementById("typingBox").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeLetter, 50);
-    }
-}
-typeLetter();
-
-/* Reasons I Love You */
-const reasons = [
-    "Your beautiful smile",
-    "Your caring heart",
-    "Your sweet voice",
-    "Your kindness to everyone",
-    "The way you make me feel loved",
-    "Your honesty and purity",
-    "Your cute expressions",
-    "Your support in everything",
-    "Your lovely messages",
-    "Just YOU — everything about you"
-];
-
-function showReasons() {
-    const list = document.getElementById("reasonsList");
-    list.innerHTML = "";
-    reasons.forEach(r => {
-        const li = document.createElement("li");
-        li.textContent = r;
-        list.appendChild(li);
-    });
-}
-
-/* Music Button */
-function toggleMusic() {
-    const music = document.getElementById("bgMusic");
-    if (music.paused) {
-        music.play();
-        document.querySelector(".music-btn").innerHTML = "⏸ Pause Music";
-    } else {
-        music.pause();
-        document.querySelector(".music-btn").innerHTML = "🎵 Play Music";
-    }
-}
-
-/* Rose Petals */
-function createPetal() {
-    const petal = document.createElement("div");
-    petal.classList.add("petal");
-    petal.innerHTML = "🌹";
-    petal.style.left = Math.random() * 100 + "vw";
-    petal.style.animationDuration = Math.random() * 3 + 4 + "s";
-    document.body.appendChild(petal);
-
-    setTimeout(() => petal.remove(), 7000);
-}
-setInterval(createPetal, 400);
-
-/* Surprise Popup */
-setTimeout(() => {
-    alert("Surprise, my love! You mean the world to me, Santhiya ❤️");
-}, 5000);
-</script>
-
-</body>
-</html>
+    .love-card::before {
