@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Love, Santhiya ❤️</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        overflow-x: hidden;
+        color: white;
+    }
+
+    h1 {
+        font-family: 'Great Vibes', cursive;
+        font-size: 70px;
+        text-align: center;
+        margin-top: 40px;
+        animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 10px #fff; }
+        to { text-shadow: 0 0 25px #ffe6f2; }
+    }
+
+    /* Slideshow */
+    .slideshow {
+        width: 80%;
+        height: 350px;
+        margin: 40px auto;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    }
+
+    .slideshow img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        animation: fade 1.5s ease-in-out;
+    }
+
+    @keyframes fade {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Typing Love Letter */
+    .typing-box {
+        width: 80%;
+        margin: 40px auto;
+        background: rgba(255,255,255,0.15);
+        padding: 25px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        font-size: 18px;
+        line-height: 1.7;
+        min-height: 120px;
+        border-left: 4px solid #fff;
+        animation: slideUp 1.5s ease;
+    }
+
+    @keyframes slideUp {
+        from { transform: translateY(40px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Reasons List */
+    .reasons {
+        width: 80%;
+        margin: 40px auto;
+        background: rgba(255,255,255,0.15);
+        padding: 25px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+    }
+
+    .reasons button {
+        background: #fff;
+        color: #ff4b6e;
+        padding: 10px 20px;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    .reasons ul {
+        list-style: none;
+        padding: 0;
+        font-size: 18px;
+    }
+
+    .reasons li {
+        margin: 10px 0;
+        background: rgba(255,255,255,0.2);
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    /* Music Button */
+    .music-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: white;
+        color: #ff4b6e;
+        padding: 12px 20px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 600;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Rose Petals */
+    .petal {
+        position: fixed;
+        top: -10px;
+        color: #ffdde1;
+        font-size: 25px;
+        animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+        to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+
+</style>
+</head>
+
+<body>
+
+<h1>For My Love, Santhiya ❤️</h1>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+    <source src="your_music.mp3" type="audio/mp3">
+</audio>
+
+<div class="music-btn" onclick="toggleMusic()">🎵 Play Music</div>
+
+<!-- Slideshow -->
+<div class="slideshow">
+    <img id="slideImg" src="photo1.jpg">
+</div>
+
+<!-- Typing Love Letter -->
+<div class="typing-box" id="typingBox"></div>
+
+<!-- Reasons I Love You -->
+<div class="reasons">
+    <button onclick="showReasons()">Show Reasons I Love You ❤️</button>
+    <ul id="reasonsList"></ul>
+</div>
+
+<script>
+/* Slideshow */
+const photos = ["photo1.jpg", "photo2.jpg", "photo3.jpg"];
+let index = 0;
+
+setInterval(() => {
+    index = (index + 1) % photos.length;
+    document.getElementById("slideImg").src = photos[index];
+}, 3000);
+
+/* Typing Animation */
+const text = "My dearest Santhiya, every moment with you feels magical. Your smile lights up my world, your kindness melts my heart, and your love completes me. I am grateful for you every single day.";
+let i = 0;
+
+function typeLetter() {
+    if (i < text.length) {
+        document.getElementById("typingBox").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeLetter, 50);
+    }
+}
+typeLetter();
+
+/* Reasons I Love You */
+const reasons = [
+    "Your beautiful smile",
+    "Your caring heart",
+    "Your sweet voice",
+    "Your kindness to everyone",
+    "The way you make me feel loved",
+    "Your honesty and purity",
+    "Your cute expressions",
+    "Your support in everything",
+    "Your lovely messages",
+    "Just YOU — everything about you"
+];
+
+function showReasons() {
+    const list = document.getElementById("reasonsList");
+    list.innerHTML = "";
+    reasons.forEach(r => {
+        const li = document.createElement("li");
+        li.textContent = r;
+        list.appendChild(li);
+    });
+}
+
+/* Music Button */
+function toggleMusic() {
+    const music = document.getElementById("bgMusic");
+    if (music.paused) {
+        music.play();
+        document.querySelector(".music-btn").innerHTML = "⏸ Pause Music";
+    } else {
+        music.pause();
+        document.querySelector(".music-btn").innerHTML = "🎵 Play Music";
+    }
+}
+
+/* Rose Petals */
+function createPetal() {
+    const petal = document.createElement("div");
+    petal.classList.add("petal");
+    petal.innerHTML = "🌹";
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.animationDuration = Math.random() * 3 + 4 + "s";
+    document.body.appendChild(petal);
+
+    setTimeout(() => petal.remove(), 7000);
+}
+setInterval(createPetal, 400);
+
+/* Surprise Popup */
+setTimeout(() => {
+    alert("Surprise, my love! You mean the world to me, Santhiya ❤️");
+}, 5000);
+</script>
+
+</body>
+</html>
